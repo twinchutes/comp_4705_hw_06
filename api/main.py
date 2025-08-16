@@ -8,7 +8,7 @@ import time
 import json
 import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
-# making a change to see if, after pushing this to dev, github actions will also push this to main.
+# testing update from cli 2025-08-16 01
 class text_input_c(BaseModel):
     body: str
 
