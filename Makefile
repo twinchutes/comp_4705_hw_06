@@ -13,7 +13,7 @@ build:
 
 run:
 	@echo "Running Docker api container..."
-	docker run -d --rm --name fastapi-container --network app-network -p 80:80 $(FASTAPI_IMAGE)
+	docker run -d --rm --name fastapi-container --network app-network -p 8000:8000 $(FASTAPI_IMAGE)
 	@echo "Running Docker streamlit container..."
 	docker run -d --rm --name streamlit-container --network app-network -p 8501:8501 $(STREAMLIT_IMAGE)
 
