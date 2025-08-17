@@ -11,9 +11,10 @@ st.title('FastAPI Monitoring Dashboard')
 @st.cache_data
 def load_df():
     '''loads the pre-trained model and target names.'''
-    training_df = pd.read_csv('IMDB Dataset.csv', chunksize=1000)
-    training_df['source'] = 'IMDB Review'
-    training_df['length'] = training_df['review'].str.split().apply(len)
+    # training_df = pd.read_csv('IMDB Dataset.csv')
+    # training_df['source'] = 'IMDB Review'
+    # training_df['length'] = training_df['review'].str.split().apply(len)
+    training_df = pd.read_csv('IMDB Dataset Processed.csv')
     return training_df
 
 training_df = load_df()
