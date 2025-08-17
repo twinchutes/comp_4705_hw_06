@@ -132,7 +132,13 @@ In the putty cli, run:
 "sudo make build"
 "sudo make run"
 
-*** if it times out you must make a new EC2 instance and follow the steps again***
+If the instance times out or if you close putty, you must create a new ppk file.
 
-Dashboard will be located at ipv4address:8501, ie http://54.173.75.37:8501/ (it takes a long time to open in micro t2)
-In postman, make calls to ipv4address: 
+Dashboard will be located at ipv4address:8501, ie http://18.213.2.212:8501/ (it takes a long time to open in micro t2)
+In postman, make calls to ipv4address, for example, make a post request to
+
+http://18.213.2.212:8000/predict
+with the body
+{
+    "body": "what an incredible movie"
+}
