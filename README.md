@@ -2,7 +2,18 @@
 
 Assignment 6 for COMP 4705
 
-# GitHub Actions Use
+# Project Architecture
+This project includes two separate Docker containers created from a single Makefile, designed to be run
+on a single EC2 instance. The first Docker container runs a FastAPI app that is built to accept get and
+post requests to analyze movie review sentiments. The second Docker container has a Streamlit container
+which can be opened in the browser to monitor the current status of the prediction service to compare
+to the baseline training data for data / target drift analysis. There is a CI/CD pipeline implemented
+that runs test files with pytest to ensure the code operates correctly and that targets are not drifting too
+far away from the original data.
+
+
+# AWS Implementation
+## GitHub Actions Use
 
 From CLI:
 * git commit -a -m 'input message'
@@ -14,7 +25,7 @@ From github.com
 * wait for actions to complete their checks.
 * if the checks are successful the changes will be merged to main.
 
-# AWS Instructions
+## AWS Instructions
 Download and install putty  
 Create the EC2 instance:
     1. Launch and Configure EC2 Instance:
@@ -47,18 +58,18 @@ In putty, Under Session, save this session
 In putty, click open
 In the putty cli, the username is "ubuntu". 
 Run each of the following commands:
-# Update packages and install Docker
+### Update packages and install Docker
 sudo apt-get update -y
 sudo apt-get install docker.io -y
 
-# Start and enable Docker so it runs on boot
+### Start and enable Docker so it runs on boot
 sudo systemctl start docker
 sudo systemctl enable docker
 
-# Add the 'ubuntu' user to the docker group
+### Add the 'ubuntu' user to the docker group
 sudo usermod -aG docker ubuntu
 
-# Log out and log back in to apply the group changes
+Log out and log back in to apply the group changes
 
 
 Still in the putty cli, run:
@@ -82,6 +93,8 @@ with the body
 }
 
 The dashboard will only load once at least one call has been amde, so be sure to make a call to /predict prior to loading the dashboard.
+
+# Local Development Instructions
 
 Installation directions
 * Gitclone the repo
