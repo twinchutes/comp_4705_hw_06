@@ -23,7 +23,7 @@ analyze = st.button('Analyze')
 
 if analyze:
     last_refresh = time.strftime('%X, %x, %Z')
-    url = 'http://fastapi-container:80/predictions'
+    url = 'http://fastapi-container:8000/predictions'
     response = requests.get(url)
     response = response.text
     try:
